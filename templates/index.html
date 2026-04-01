@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Student Stress Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="card">
+            <h2>🎓 Student Stress Predictor</h2>
+
+            <form action="/predict" method="post">
+
+                <div class="grid">
+
+                    <input type="number" name="Age" placeholder="Age" required>
+                    <input type="number" name="Daily_Walk_km" placeholder="Daily Walk (km)" required>
+
+                    <input type="number" name="Screen_Time_hrs" placeholder="Screen Time (hrs)" required>
+                    <input type="number" name="Sleep_hrs" placeholder="Sleep (hrs)" required>
+
+                    <input type="number" name="Study_Work_hrs" placeholder="Study/Work (hrs)" required>
+
+                    <select name="Gender">
+                        <option value="">Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+
+                    <select name="Activity_Level">
+                        <option value="">Activity Level</option>
+                        <option value="low">Low</option>
+                        <option value="medium">Medium</option>
+                        <option value="high">High</option>
+                    </select>
+
+                    <select name="Diet_Quality">
+                        <option value="">Diet Quality</option>
+                        <option value="poor">Poor</option>
+                        <option value="average">Average</option>
+                        <option value="good">Good</option>
+                    </select>
+
+                    <select name="Caffeine_Intake">
+                        <option value="">Caffeine Intake</option>
+                        <option value="low">Low</option>
+                        <option value="medium">Medium</option>
+                        <option value="high">High</option>
+                    </select>
+
+                </div>
+
+                <button type="submit">Predict Stress</button>
+            </form>
+
+            {% if prediction_text %}
+            <div class="result">
+                {{ prediction_text }}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+</body>
+
+</html>
