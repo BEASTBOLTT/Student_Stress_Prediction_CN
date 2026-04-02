@@ -1,26 +1,30 @@
-# 🎓 Student Stress Level Prediction System
+# 🎓 Student Stress Level Prediction System (Streamlit App)
 
 ## 📌 Project Overview
 
-This project is a Machine Learning-based web application that predicts the **stress level of students** based on their lifestyle and academic factors.
-The system uses a trained model to analyze inputs such as sleep, study hours, screen time, and diet, and outputs a stress category.
+This project is a Machine Learning-based web application that predicts the **stress level of students** based on their lifestyle and academic habits.
+
+The system analyzes inputs such as sleep, study hours, screen time, physical activity, diet, and caffeine intake, and classifies stress into categories like **Low, Medium, or High**.
+
+The application is built using **Streamlit**, making it easy to interact with and deploy.
 
 ---
 
 ## 🚀 Features
 
-* Predicts student stress level (Low / Medium / High)
-* User-friendly web interface using Flask
-* Handles both numerical and categorical inputs
-* Real-time prediction
-* Clean and modern UI
+* 🔮 Predicts student stress level instantly
+* 🧠 Uses trained Machine Learning model (Logistic Regression)
+* 🎯 Accepts both numerical and categorical inputs
+* 🎨 Clean and modern UI (Streamlit-based)
+* ⚡ Fast and interactive interface
+* 🌐 Ready for deployment on Streamlit Cloud
 
 ---
 
 ## 🧠 Technologies Used
 
 * Python
-* Flask
+* Streamlit
 * NumPy
 * Scikit-learn
 * Joblib
@@ -29,12 +33,15 @@ The system uses a trained model to analyze inputs such as sleep, study hours, sc
 
 ## ⚙️ Machine Learning Model
 
-* Algorithm Used: Random Forest / Logistic Regression (based on trained model)
+* Algorithm Used: Logistic Regression
 * Data Preprocessing:
 
-  * Numerical features scaled using StandardScaler
+  * Missing values handled using mean/mode
   * Categorical features encoded manually
-* Model saved using Joblib (`.pkl` files)
+  * Numerical features scaled using StandardScaler
+* Model Persistence:
+
+  * Saved using Joblib (`.pkl` files)
 
 ---
 
@@ -61,18 +68,13 @@ The system uses a trained model to analyze inputs such as sleep, study hours, sc
 
 ```
 student-stress-prediction/
-│── app.py
-│── stress_model.pkl
-│── scaler.pkl
-│── label_encoder.pkl
-│
-├── templates/
-│     └── index.html
-│
-├── static/
-│     └── style.css
-│
-└── README.md
+│── app.py                 # Streamlit app
+│── train.py              # Model training script
+│── stress_model.pkl      # Trained model
+│── scaler.pkl            # Scaler for numerical data
+│── label_encoder.pkl     # Encoder for output labels
+│── requirements.txt
+│── README.md
 ```
 
 ---
@@ -86,22 +88,37 @@ git clone <your-repo-link>
 cd student-stress-prediction
 ```
 
-### 2️⃣ Install Dependencies
+---
+
+### 2️⃣ Create Virtual Environment (Recommended)
 
 ```bash
-pip install flask numpy scikit-learn joblib
+conda create -n stress_env python=3.10
+conda activate stress_env
 ```
 
-### 3️⃣ Run the Application
+---
+
+### 3️⃣ Install Dependencies
 
 ```bash
-python app.py
+pip install -r requirements.txt
 ```
 
-### 4️⃣ Open in Browser
+---
+
+### 4️⃣ Run the Application
+
+```bash
+streamlit run app.py
+```
+
+---
+
+### 5️⃣ Open in Browser
 
 ```
-http://127.0.0.1:5000/
+http://localhost:8501
 ```
 
 ---
@@ -109,29 +126,31 @@ http://127.0.0.1:5000/
 ## 💡 How It Works
 
 1. User enters lifestyle and academic data
-2. Data is processed and encoded
+2. Inputs are encoded and preprocessed
 3. Numerical values are scaled
 4. Model predicts stress level
-5. Result is displayed on the web page
+5. Result is displayed instantly
 
 ---
 
 ## ⚠️ Notes
 
-* Ensure all `.pkl` files are in the root directory
-* If you see version warnings from scikit-learn, they can be ignored for demonstration purposes
+* Ensure all `.pkl` files are present in the root directory
+* Use Python 3.10 for compatibility
+* If version warnings appear, they can be safely ignored for demonstration
 * The model expects all input features to be provided
 
 ---
 
 ## 🎯 Future Improvements
 
-* Add data visualization (charts/graphs)
-* Deploy application online
-* Improve UI with animations
-* Add user authentication system
+* 📊 Add data visualization (charts/graphs)
+* 🌐 Deploy publicly with custom domain
+* 🎨 Add animations and advanced UI
+* 🔐 Add authentication system
 
 ---
+
 
 ## 📜 License
 
